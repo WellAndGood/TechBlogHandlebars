@@ -1,0 +1,22 @@
+[
+{
+    "title": "This is my new blog",
+    "content": "Hello world!",
+    "user_id": "3"
+},
+{
+    "title": "How to be a cool guy",
+    "content": "Step 1: Don't be weird",
+    "user_id": "2"
+},
+{
+    "title": "How to be a weird guy",
+    "content": "Step 1: Don't be cool",
+    "user_id": "1"
+},
+{
+    "title": "How to be a coder",
+    "content": "Step 2: Code a lot",
+    "user_id": "4"
+}
+]
