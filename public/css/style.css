@@ -1,0 +1,138 @@
+
+header {
+    background-color: #e0e0eb;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 15px 0 black;
+    border-radius: 15px;
+    margin: 0 20px;
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+header li a:hover {
+    color: blue;
+}
+
+#online-blog-title {
+    font-family: 'Staatliches', cursive;
+    font-size: 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: sans-serif;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-family: sans-serif;
+}
+
+h3 {
+    font-size: 1rem;
+    font-family: sans-serif;
+}
+
+p {
+    font-size: 1.25rem;
+    font-family: Serif;
+}
+
+#blogdiv {
+    text-align: center;
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blog-content {
+    text-align: center;
+    border: 1px solid black;
+    width: 70%;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: rgba(224,224,235,0.5);
+    border-radius: 20px;
+    margin: 15px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    height: 65px;
+}
+
+.add-comment-section {
+    display: none;
+}
+
+#legalStuff {
+    text-align: center;
+}
+
+.code-card {
+    box-shadow: 0 10px 20px rgb(3, 54, 3);
+    width: 100%;
+}
+
+.input-field {
+    max-width:none; 
+    grid-template-columns: none; 
+    background-color: #fff;
+}
+
+#createPost {
+    box-shadow: 0 10px 30px rgb(3, 54, 3); 
+    margin-bottom: 6%; 
+    margin-left: 35%;
+}
+
+.comments-section {
+    border-radius: 5px;
+    display: none
+}
+
+.comment p {
+    font-size: 100%;
+    padding: 0px;
+    margin: 0px;
+    display: block;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+#login {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: rgba(224,224,235,0.5);
+}
+
+#register {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: rgba(224,224,235,0.5);
+}

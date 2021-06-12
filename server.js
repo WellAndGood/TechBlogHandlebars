@@ -7,9 +7,9 @@ const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // variables pointing to folders in the repo
-const routes = require('./controllers');
+const routes = require('./routes');
 const sequelize = require('./config/connection');
-//const helpers = require('./utils/helpers');
+const helpers = require('./utils/helpers');
 
 const app = express();
 const PORT = process.env.PORT || 3003;
@@ -31,7 +31,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-const hbs = exphbs.create({});
+const hbs = exphbs.create({helpers});
 //templates
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -47,6 +47,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log(`Now listening at ${PORT}`));
 });
 

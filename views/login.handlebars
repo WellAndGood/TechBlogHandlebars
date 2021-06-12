@@ -1,0 +1,51 @@
+<div id="container_demo" >
+    {{!-- Original source from https://tympanus.net/codrops/2012/03/27/login-and-registration-form-with-html5-and-css3/ --}}
+	<div id="wrapper">
+		<div id="login" class="animate form">
+			<form  autocomplete="on"> 
+				<h1>Log in</h1> 
+				<p> 
+					<label for="username" class="uname" data-icon="u" > Your username </label>
+					<input id="username" name="username" type="text" placeholder="user123" required/>
+				</p>
+				<p> 
+					<label for="password" class="youpasswd" data-icon="p"> Your password </label>
+					<input id="password" name="password" type="password" placeholder="e.g., password" required/> 
+				</p>
+				<p class="keeplogin"> 
+					<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+					<label for="loginkeeping">Keep me logged in</label>
+				</p>
+				<p class="login button"> 
+					<input type="submit" value="Login" /> 
+				</p>
+			</form>
+		</div>
+
+		<div id="register" class="animate form">
+			<form autocomplete="on"> 
+				<h1> Sign up </h1> 
+				<p> 
+					<label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+					<input id="usernamesignup" name="usernamesignup" type="text" placeholder="bloguser295" required/>
+				</p>
+				<p> 
+					<label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+					<input id="emailsignup" name="emailsignup" type="email" placeholder="mysupermail@mail.com" required/> 
+				</p>
+				<p> 
+					<label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+					<input id="passwordsignup" name="passwordsignup" type="password" placeholder="eg. X8df!90EO" required/>
+				</p>
+				<p> 
+					<label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+					<input id="passwordsignup_confirm" name="passwordsignup_confirm" type="password" placeholder="eg. X8df!90EO" required/>
+				</p>
+				<p class="signin button"> 
+					<input type="submit" value="Sign up"/> 
+				</p>
+			</form>
+		</div>
+		
+	</div>
+</div>  

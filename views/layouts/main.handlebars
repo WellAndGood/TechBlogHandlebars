@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    {{!-- <link rel="stylesheet" type="text/css" href="../../public/css/style.css"> --}}
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Staatliches&display=swap" rel="stylesheet">    
+    <title>The Tech's Mechs</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li id="online-blog-title">The Tech's Mechs</li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id = "blogdiv">
+        {{{ body }}}
+    </section>
+
+
+    <footer>
+    <h3>© 2021 The Blog Production</h3>
+    <section class="legalStuff">
+      <a href="#" target="_blank">Terms of Service</a>
+      <a href="#" target="_blank">Privacy Policy</a>
+    </section>
+  </footer>
+
+  <script src="/js/blog.js"></script>
+
+</body>
+</html>

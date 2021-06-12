@@ -1,0 +1,25 @@
+
+<button type="button" class="btn btn-primary" id="addNewBlog">Create New Blog Post</button>
+
+{{#each blogArr as |blog|}}
+<div data-blogid ="{{blog.id}}" class="blog-content">
+    <div>
+        <h2 class="blog-title">{{blog.title}}</h2>
+        <p class="blog-main">{{blog.content}}</p>
+        <h3 class="blog-author">By: {{blog.username}}</h3>
+    </div>
+    <div>
+        <div class="add-comment-section" id="addcommentsection{{blog.id}}">
+            <textarea id="comment-text-{{blog.id}}"></textarea>
+            <br>
+            <button type="submit" id="submit-comment-{{blog.id}}">Submit Comment</button>
+        </div>
+        <hr>
+        <div class="comments-section" id="commentsection{{blog.id}}">
+        </div>
+        <button onclick="viewComments({{blog.id}})" class="viewComments">View Comments</button>
+        <button onclick="addComment({{blog.id}})" class="addComment" id="addComment{{blog.id}}">Add a Comment</button>
+        <button type="button" class="btn btn-danger deleteBlog p0" id="deleteButton{{blog.id}}">Delete This Blog</button>
+    </div>
+</div>
+{{/each}}

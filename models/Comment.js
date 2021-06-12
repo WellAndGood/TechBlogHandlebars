@@ -15,13 +15,7 @@ const { Model, DataTypes } = require('sequelize');
         type: DataTypes.STRING,
         allowNull: false,
       },
-      // user_id: {
-      //   type: DataTypes.STRING,
-      //   references: {
-      //       model: 'user',
-      //       key: 'id'
-      //     }
-      // },
+
       post_id: {
         type: DataTypes.STRING,
         references: {
