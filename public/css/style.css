@@ -73,13 +73,36 @@ p {
     margin: 15px;
 }
 
+.blog-entry {
+    width: 90%;
+}
+
 textarea {
     resize: none;
     width: 100%;
     height: 65px;
+    border-radius: 1rem;
+    text-indent: 20px;
+}
+
+textarea::placeholder {
+    color: black;
+}
+
+#blog-title-input {
+    background-color: rgba(199, 199, 199, 0.5);
+    max-height: 30px;
+}
+
+#blog-content-input {
+    min-height: 200px;
 }
 
 .add-comment-section {
+    display: none;
+}
+
+.hideComments {
     display: none;
 }
 
@@ -98,10 +121,10 @@ textarea {
     background-color: #fff;
 }
 
-#createPost {
-    box-shadow: 0 10px 30px rgb(3, 54, 3); 
-    margin-bottom: 6%; 
-    margin-left: 35%;
+#publishPost {
+    box-shadow: 0 10px 30px rgba(106, 110, 106, 0.692); 
+    position: relative;
+    left: 200px;
 }
 
 .comments-section {

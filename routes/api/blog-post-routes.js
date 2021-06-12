@@ -66,13 +66,12 @@ router.post('/', async (req, res) => {
       const commentData = await Post.create({
         title: req.body.title,
         content: req.body.content,
-        user_id: req.body.user_id
+        user_id: req.session.user_id || 1
       });
       res.status(200).json(commentData);
     } catch (err) {
       res.status(400).json(err);
     }
   });
-
 
 module.exports = router;

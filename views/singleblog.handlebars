@@ -1,0 +1,23 @@
+
+<div data-blogid ="{{id}}" class="blog-content">
+    <div>
+        <a href="/singleblog/{{id}}"><h2 class="blog-title">{{title}}</h2></a>
+        <p class="blog-main">{{content}}</p>
+        <h3 class="blog-author">By: {{user.username}}</h3>
+    </div>
+    <div>
+        <div class="add-comment-section" id="addcommentsection{{id}}">
+            <textarea id="comment-text-{{id}}"></textarea>
+            <br>
+            <button type="submit" id="submit-comment-{{id}}">Submit Comment</button>
+        </div>
+        <hr>
+        <div class="comments-section" id="commentsection{{id}}">
+        </div>
+
+        <button class="viewComments">View Comments</button>
+        <button class="addComment" id="addComment{{id}}">Add a Comment</button>        
+    </div>
+</div>
+
+<script src="/js/singleblog.js"></script>

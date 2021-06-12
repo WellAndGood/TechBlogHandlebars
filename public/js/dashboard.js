@@ -1,10 +1,38 @@
-console.log("Hello World again!")
-
 const viewCommButton = document.getElementsByClassName("viewComments")
+const hideCommButton = document.getElementsByClassName("hideComments")
 const addCommButton = document.getElementsByClassName("addComment")
+const deleteBlogButton = document.getElementsByClassName("deleteBlog")
 const addNewBlog = document.getElementById("addNewBlog")
 
+
+// Delete Blog associated to this button
+for (i=0; i < deleteBlogButton.length; i++) {
+    deleteBlogButton[i].addEventListener("click", function(event) {
+        const wholeDiv = event.target.parentElement.parentElement
+        console.log(wholeDiv)
+        const dataID = wholeDiv.getAttribute("data-blogid")
+        console.log(dataID)
+
+        confirm("Are you sure you want to delete this post?")
+        if (confirm) {
+            console.log(`You've confirmed to delete post #${dataID}`)
+            fetch(`/api/blogs/${dataID}`, {
+                method: 'DELETE',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              })
+              .then((response) => {
+                location.reload()
+                return response
+              })
+        }
+    });
+};
+
+// Add Comments Button
 for (i=0; i < addCommButton.length; i++) {
+    console.log("You're trying to add a button")
     addCommButton[i].addEventListener("click", function(event) {
         const wholeDiv = event.target.parentElement.parentElement
         console.log(wholeDiv)
@@ -15,10 +43,10 @@ for (i=0; i < addCommButton.length; i++) {
         addCommentSection.style.display = "inline"
 
         const submitCommentButt = document.getElementById(`submit-comment-${dataID}`)
-        console.log(submitCommentButt)
+        // console.log(submitCommentButt)
 
         submitCommentButt.addEventListener("click", function() {
-            console.log("You clicked me!")
+            // console.log("You clicked me!")
 
             var textArea = document.getElementById(`comment-text-${dataID}`).value
             console.log(textArea)
@@ -37,21 +65,30 @@ for (i=0; i < addCommButton.length; i++) {
               })
               .then((response) => {
                 textArea = ""
+                location.reload()
+                return response
               })
-        })
-    })
+        });
+    });
 };
 
+// View Comments Button (Dashboard)
 for (i=0; i < viewCommButton.length; i++) {
     viewCommButton[i].addEventListener("click", function(event) {
         const wholeDiv = event.target.parentElement.parentElement
-        console.log(wholeDiv)
         const dataID = wholeDiv.getAttribute("data-blogid")
-        console.log(dataID)
 
         // Makes comment section visible (was once display: none)
         const commentSection = document.getElementById(`commentsection${dataID}`)
+        commentSection.innerHTML = ""
         commentSection.style.display = "inline"
+
+        const hideCommButton = document.getElementById(`hideComments${dataID}`)
+        hideCommButton.style.display = "inline"
+
+        const thisViewComm = document.getElementById(`viewComments${dataID}`)
+        thisViewComm.style.display = "none"
+        // hideCommButton[i].style.display = "inline"
 
         const getComments = function() {
             fetch(`/api/comments/blog/${dataID}`, {
@@ -105,10 +142,37 @@ for (i=0; i < viewCommButton.length; i++) {
                 });
         }
         getComments()
-
     })
 }
 
+// Hide Comments (Dashboard)
+
+for (i=0; i < viewCommButton.length; i++) {
+    hideCommButton[i].addEventListener("click", function(event) {
+        const wholeDiv = event.target.parentElement.parentElement
+        const dataID = wholeDiv.getAttribute("data-blogid")
+        console.log(dataID)
+
+        // Makes comment section visible (was once display: none)
+        const commentSection = document.getElementById(`commentsection${dataID}`)
+        commentSection.innerHTML = ""
+        commentSection.style.display = "none"
+
+        const viewCommButton = document.getElementById(`viewComments${dataID}`)
+        viewCommButton.style.display = "inline"
+
+        const thisHideButt = document.getElementById(`hideComments${dataID}`)
+        thisHideButt.style.display = "none"
+    })
+};
+
+
+// Add New Blog (Dashboard)
 addNewBlog.addEventListener("click", function() {
+    console.log("You clicked to add a new blog")
     location.replace('/newblog')
 })
+
+
+
+

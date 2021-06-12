@@ -4,9 +4,9 @@
 {{#each blogArr as |blog|}}
 <div data-blogid ="{{blog.id}}" class="blog-content">
     <div>
-        <h2 class="blog-title">{{blog.title}}</h2>
+        <a href="/singleblog/{{blog.id}}"><h2 class="blog-title">{{blog.title}}</h2></a>
         <p class="blog-main">{{blog.content}}</p>
-        <h3 class="blog-author">By: {{blog.username}}</h3>
+        <h3 class="blog-author">By: {{user.username}}</h3>
     </div>
     <div>
         <div class="add-comment-section" id="addcommentsection{{blog.id}}">
@@ -17,9 +17,12 @@
         <hr>
         <div class="comments-section" id="commentsection{{blog.id}}">
         </div>
-        <button onclick="viewComments({{blog.id}})" class="viewComments">View Comments</button>
-        <button onclick="addComment({{blog.id}})" class="addComment" id="addComment{{blog.id}}">Add a Comment</button>
-        <button type="button" class="btn btn-danger deleteBlog p0" id="deleteButton{{blog.id}}">Delete This Blog</button>
+        <button class="viewComments" id="viewComments{{blog.id}}">View Comments</button>
+        <button class="hideComments" id="hideComments{{blog.id}}">Hide Comments</button>
+        <button class="addComment" id="addComment{{blog.id}}">Add a Comment</button>
+        <button class="btn btn-danger deleteBlog p0" type="button" id="deleteBlog{{blog.id}}">Delete This Blog</button>
     </div>
 </div>
 {{/each}}
+
+<script src="/js/dashboard.js"></script>

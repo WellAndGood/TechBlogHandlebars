@@ -1,17 +1,19 @@
-<div class="column1">
-  <figure class="card code-card">
+<div class="blog-entry">
+  <figure>
     <form action="#" class="signup-form">
       <h2 class="title" style="color: rgb(3, 54, 3)">Create a New Blog Post</h2>
       <br>
       <div>
         <div class="input-field">
-          <input style="border-radius: 1.5rem; " id="blog_title" type="text"
-            placeholder="Enter Your Blog Title" />
+          <textarea id="blog-title-input" type="text"
+            placeholder="Enter Your Blog Title"/></textarea>
         </div>
         <div class="input-field">
-          <input style="border-radius: 1.5rem;" id="blog_content" type="text" placeholder="Enter Your Main Content Here" />
+          <textarea id="blog-content-input" type="text" placeholder="Enter Your Main Content Here" /></textarea>
         </div>
-        <input id="createPost" type="submit" class="btn" value="Submit"/>
+        <button type="button" id="publishPost" class="btn btn-info" value="Publish Your Blog Here!"/>Publish Your Blog Here!</button>
     </form>
   </figure>
 </div>
+
+<script src="/js/newblog.js"></script>
