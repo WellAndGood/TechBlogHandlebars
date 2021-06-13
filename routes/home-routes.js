@@ -37,7 +37,8 @@ router.get("/dashboard", async (req, res) => {
 
   res.render("dashboard", {
     blogArr: PostPlain,
-    logged_in: req.session.user_id        
+    logged_in: req.session.user_id,
+    username: req.session.username       
   })
 })
 
