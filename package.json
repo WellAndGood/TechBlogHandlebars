@@ -2,8 +2,9 @@
   "name": "tech-blog-handlebars",
   "version": "1.0.0",
   "description": "A tech blog, which allows for users to submit blogs and comments",
-  "main": "node server.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "npm test"
   },
   "repository": {
