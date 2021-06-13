@@ -8,7 +8,6 @@ router.get("/", async (req, res) => {
     });
     const PostPlain = blogs.map((post) => post.get({ plain: true }))
     PostPlain.reverse()
-    console.log(PostPlain)
 
     res.render("blogposts", {
       blogArr: PostPlain     
@@ -16,14 +15,19 @@ router.get("/", async (req, res) => {
   });
 
 router.get("/dashboard", async (req, res) => {
-  
+  if (!req.session.user_id) {
+    res.redirect("/login")
+  }
   const blogs = dbPostData = await Post.findAll({
     where: {
-      id: req.session.user_id || 1
+      user_id: req.session.user_id // || 1
     },
     include: [User]
   });
   const PostPlain = blogs.map((post) => post.get({ plain: true }))
+  PostPlain.reverse()
+
+  console.log(PostPlain)
 
   res.render("dashboard", {
     blogArr: PostPlain      
@@ -31,7 +35,6 @@ router.get("/dashboard", async (req, res) => {
 })
 
 module.exports = router;
-
 
 router.get("/login", async (req, res) => {
   res.render("login", {
@@ -49,7 +52,6 @@ router.get("/singleblog/:id", async (req, res) => {
       include: [User]
     });
     const singleBlogData = blogData.get({ plain: true });
-    console.log(singleBlogData)
 
     res.render('singleblog', {
       layout: 'main',
@@ -58,4 +60,9 @@ router.get("/singleblog/:id", async (req, res) => {
   } catch (err) {
     console.log(err)
   }
+});
+
+router.get("/logout", async (req, res) => {
+  res.render("login", {
+  })
 });

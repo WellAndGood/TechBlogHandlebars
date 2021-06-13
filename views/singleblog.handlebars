@@ -1,6 +1,7 @@
-
+<br>
+<br>
 <div data-blogid ="{{id}}" class="blog-content">
-    <div>
+    <div id="inner-content">
         <a href="/singleblog/{{id}}"><h2 class="blog-title">{{title}}</h2></a>
         <p class="blog-main">{{content}}</p>
         <h3 class="blog-author">By: {{user.username}}</h3>
@@ -15,9 +16,10 @@
         <div class="comments-section" id="commentsection{{id}}">
         </div>
 
-        <button class="viewComments">View Comments</button>
+        <button class="viewComments" id="viewComments{{id}}">View Comments</button>
+        <button class="hideComments" id="hideComments{{id}}">Hide Comments</button>
         <button class="addComment" id="addComment{{id}}">Add a Comment</button>        
     </div>
 </div>
 
-<script src="/js/singleblog.js"></script>
+<script src="/js/mainposts.js"></script>

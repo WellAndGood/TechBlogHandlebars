@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     // if (!req.session.user_id) {
     //     res.redirect("/")
     // }
-    console.log("Hello all")
+
     try {
         // Gets all Posts and serializes
         const dbPostData = await Post.findAll();
@@ -20,6 +20,8 @@ router.get('/', async (req, res) => {
             }})
             PostPlain[i].username = dbUserData.username
         }
+
+        console.log(PostPlain)
 
         // console.log(PostPlain)
         res.render('blogposts', {
@@ -60,18 +62,18 @@ router.post('/', async (req, res) => {
     // if (!req.session.user_id) {
     //     res.redirect("/")
     // }
-    try { 
+    // try { 
 
     // A POST-compatible comment data structure 
       const commentData = await Post.create({
         title: req.body.title,
         content: req.body.content,
-        user_id: req.session.user_id || 1
+        user_id: req.session.user_id   // || 1
       });
-      res.status(200).json(commentData);
-    } catch (err) {
-      res.status(400).json(err);
-    }
+    //   res.status(200).json(commentData);
+    // } catch (err) {
+    //   res.status(400).json(err);
+    // }
   });
 
 module.exports = router;

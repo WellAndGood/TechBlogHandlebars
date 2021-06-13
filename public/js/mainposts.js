@@ -4,12 +4,9 @@ const addCommButton = document.getElementsByClassName("addComment")
 
 // Add Comments Button (Main '/')
 for (i=0; i < addCommButton.length; i++) {
-    console.log("You're trying to add a button")
     addCommButton[i].addEventListener("click", function(event) {
         const wholeDiv = event.target.parentElement.parentElement
-        console.log(wholeDiv)
         const dataID = wholeDiv.getAttribute("data-blogid")
-        console.log(dataID)
     
         const addCommentSection = document.getElementById(`addcommentsection${dataID}`)
         addCommentSection.style.display = "inline"
@@ -82,9 +79,17 @@ for (i=0; i < viewCommButton.length; i++) {
                         comment.id = `comment${commentList[i].id}`                        
                         const thisComment = commentList[i]
 
+                        // Convert date to string
+                        var blogYear = new Date(thisComment.createdAt).getFullYear()
+                        var blogMonth = new Date(thisComment.createdAt).getMonth()
+                        var blogDay = new Date(thisComment.createdAt).getDate()
+
                         // Convert time to toLocaleDateString()
-                        var localTime = new Date (thisComment.createdAt)
-                        localTime.toLocaleDateString()
+                        var blogHour = new Date(thisComment.createdAt).getHours()
+                        var blogMinute = new Date(thisComment.createdAt).getMinutes()
+                        var blogSecond = new Date(thisComment.createdAt).getSeconds()
+
+                        const blogDate = `${blogYear}/${blogMonth}/${blogDay} at ${blogHour}:${blogMinute}:${blogSecond}`
 
                         // Creates the individual comments sections 
                         // The comment's username
@@ -98,7 +103,7 @@ for (i=0; i < viewCommButton.length; i++) {
 
                         // The comment's creation date
                         var commentCreation = document.createElement("p");
-                        commentCreation.textContent = localTime
+                        commentCreation.textContent = blogDate
 
                         // Attach elements to div, then attach div to comment's section
                         comment.appendChild(username)
@@ -118,10 +123,8 @@ for (i=0; i < viewCommButton.length; i++) {
 }
 
 // Hide Comments (Main '/')
-
 for (i=0; i < viewCommButton.length; i++) {
     hideCommButton[i].addEventListener("click", function(event) {
-        console.log("You clicked me")
         const wholeDiv = event.target.parentElement.parentElement
         const dataID = wholeDiv.getAttribute("data-blogid")
         console.log(dataID)

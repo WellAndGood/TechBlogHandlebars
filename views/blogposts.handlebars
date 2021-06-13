@@ -1,9 +1,13 @@
+<br>
+<br>
+<h1>Home Page</h1>
 {{#each blogArr as |blog|}}
 <div data-blogid ="{{blog.id}}" class="blog-content">
-    <div>
+    <div id="inner-content">
         <a href="/singleblog/{{blog.id}}"><h2 class="blog-title">{{blog.title}}</h2></a>
         <p class="blog-main">{{blog.content}}</p>
         <h3 class="blog-author">By: {{user.username}}</h3>
+        <h6 class="timestamp">{{blog.createdAt}}</h3>
     </div>
     <div>
         <div class="add-comment-section" id="addcommentsection{{blog.id}}">

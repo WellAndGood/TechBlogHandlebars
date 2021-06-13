@@ -1,12 +1,19 @@
-
+<br>
+<br>
+<h1>User Dashboard</h1>
+<p class="dashboard">Welcome! This is your dashboard. Here you will find all of your published posts.</p> 
+<p class="dashboard">If this page is (mostly) empty, then it's because you haven't published any blogs!</p> 
+<p class="dashboard">Well, time to get to work... ;)</p>
+</br>
 <button type="button" class="btn btn-primary" id="addNewBlog">Create New Blog Post</button>
 
 {{#each blogArr as |blog|}}
 <div data-blogid ="{{blog.id}}" class="blog-content">
-    <div>
+    <div id="inner-content">
         <a href="/singleblog/{{blog.id}}"><h2 class="blog-title">{{blog.title}}</h2></a>
         <p class="blog-main">{{blog.content}}</p>
         <h3 class="blog-author">By: {{user.username}}</h3>
+        <h6 class="timestamp">{{blog.createdAt}}</h3>
     </div>
     <div>
         <div class="add-comment-section" id="addcommentsection{{blog.id}}">

@@ -6,7 +6,7 @@
 				<h1>Log in</h1> 
 				<p> 
 					<label for="username" class="uname" data-icon="u" > Your username </label>
-					<input id="username" name="username" type="text" placeholder="user123" required/>
+					<input id="username" name="username" type="text" placeholder="e.g., user123" required/>
 				</p>
 				<p> 
 					<label for="password" class="youpasswd" data-icon="p"> Your password </label>
@@ -17,35 +17,37 @@
 					<label for="loginkeeping">Keep me logged in</label>
 				</p>
 				<p class="login button"> 
-					<input type="submit" value="Login" /> 
+					<input id="loginbutton"type="submit" value="Login" /> 
 				</p>
 			</form>
 		</div>
 
 		<div id="register" class="animate form">
 			<form autocomplete="on"> 
-				<h1> Sign up </h1> 
+				<h1> Sign up </h1>
+				<h5 id="error"></h5>
 				<p> 
 					<label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-					<input id="usernamesignup" name="usernamesignup" type="text" placeholder="e.g., bloguser295" required/>
+					<input id="usernamesignup" name="usernamesignup" type="text" placeholder="Username" required/>
 				</p>
 				<p> 
 					<label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-					<input id="emailsignup" name="emailsignup" type="email" placeholder="e.g., mysupermail@mail.com" required/> 
+					<input id="emailsignup" name="emailsignup" type="email" placeholder="Email" required/> 
 				</p>
 				<p> 
 					<label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-					<input id="passwordsignup" name="passwordsignup" type="password" placeholder="e.g., X8df!90EO" required/>
+					<input id="passwordsignup" name="passwordsignup" type="password" placeholder="Password" required/>
 				</p>
 				<p> 
 					<label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-					<input id="passwordsignup_confirm" name="passwordsignup_confirm" type="password" placeholder="e.g., X8df!90EO" required/>
+					<input id="passwordsignup_confirm" name="passwordsignup_confirm" type="password" placeholder="Password" required/>
 				</p>
 				<p class="signin button"> 
-					<input type="submit" value="Sign up"/> 
+					<input type="submit" id="signinbutton" value="Sign up"/> 
 				</p>
 			</form>
 		</div>
-		
 	</div>
 </div>  
+
+<script src="/js/login.js"></script>

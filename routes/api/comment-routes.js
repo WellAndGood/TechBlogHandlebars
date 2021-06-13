@@ -11,7 +11,6 @@ router.get('/', async (req, res) => {
         const dbCommentData = await Comment.findAll();
         const commentPlain = dbCommentData.map((post) => post.get({ plain: true }))
         
-        console.log(commentPlain)
         res.status(200).json(commentPlain);
     } catch {
         console.log(error)
@@ -28,7 +27,7 @@ router.get('/blog/:id', async (req, res) => {
         const dbCommentData = await Comment.findAll({
             where: {
                 postId: req.params.id
-            },
+            }
         });
         const commentPlain = dbCommentData.map((post) => post.get({ plain: true }))
         
@@ -38,6 +37,8 @@ router.get('/blog/:id', async (req, res) => {
             }})
             commentPlain[i].username = dbUserData.username
         }
+
+        console.log(commentPlain)
 
         res.status(200).json(commentPlain);
     } catch {
@@ -53,14 +54,14 @@ router.post('/', async (req, res) => {
     // }
     try { 
 
-        console.log(req.body)
-
     // A POST-compatible comment data structure 
       const commentData = await Comment.create({
         comment: req.body.comment,
         post_id: req.body.post_id,
-        user_id: req.body.user_id || 1
+        user_id: req.session.user_id // does not work!
       });
+
+      console.log(req.session.user_id)
       res.status(200).json(commentData);
     } catch (err) {
       res.status(400).json(err);

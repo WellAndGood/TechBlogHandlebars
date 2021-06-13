@@ -30,7 +30,23 @@ header li a:hover {
 
 #online-blog-title {
     font-family: 'Staatliches', cursive;
-    font-size: 2rem;
+}
+
+#inner-content {
+    padding-top: 20px;
+}
+
+a {
+    color: rgb(146, 3, 146)
+}
+
+a:hover {
+    color: rgb(146, 3, 146)
+}
+
+.blog-author {
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 h1 {
@@ -39,18 +55,28 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-family: sans-serif;
+    margin-top: 60px;
 }
 
 h3 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-family: sans-serif;
 }
 
 p {
+    text-align: justify;
+}
+
+.dashboard {
+    line-height: 0.8;
+}
+
+.blog_main {
     font-size: 1.25rem;
     font-family: Serif;
+    line-height: 1;
 }
 
 #blogdiv {
@@ -92,10 +118,12 @@ textarea::placeholder {
 #blog-title-input {
     background-color: rgba(199, 199, 199, 0.5);
     max-height: 30px;
+    width: 85%;
 }
 
 #blog-content-input {
     min-height: 200px;
+    width: 85%;
 }
 
 .add-comment-section {
@@ -104,6 +132,12 @@ textarea::placeholder {
 
 .hideComments {
     display: none;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.viewComments {
+    margin-bottom: 15px;
 }
 
 #legalStuff {
@@ -139,9 +173,16 @@ textarea::placeholder {
     display: block;
 }
 
+.comment {
+    background-color: rgba(128, 128, 128, 0.1);
+    margin: 3px;
+    border-radius: 8px;
+}
+
 #wrapper {
     display: flex;
     flex-direction: row;
+    margin-top: 50px;
 }
 
 #login {
@@ -158,4 +199,9 @@ textarea::placeholder {
     margin: 5px;
     border-radius: 10px;
     background-color: rgba(224,224,235,0.5);
+}
+
+footer {
+    margin-left: 150px;
+    
 }

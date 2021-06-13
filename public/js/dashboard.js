@@ -110,9 +110,17 @@ for (i=0; i < viewCommButton.length; i++) {
                         comment.id = `comment${commentList[i].id}`                        
                         const thisComment = commentList[i]
 
+                        // Convert date to string
+                        var blogYear = new Date(thisComment.createdAt).getFullYear()
+                        var blogMonth = new Date(thisComment.createdAt).getMonth()
+                        var blogDay = new Date(thisComment.createdAt).getDate()
+
                         // Convert time to toLocaleDateString()
-                        var localTime = new Date (thisComment.createdAt)
-                        localTime.toLocaleDateString()
+                        var blogHour = new Date(thisComment.createdAt).getHours()
+                        var blogMinute = new Date(thisComment.createdAt).getMinutes()
+                        var blogSecond = new Date(thisComment.createdAt).getSeconds()
+
+                        const blogDate = `${blogYear}/${blogMonth}/${blogDay} at ${blogHour}:${blogMinute}:${blogSecond}`
 
                         // Creates the individual comments sections 
                         // The comment's username
@@ -126,7 +134,7 @@ for (i=0; i < viewCommButton.length; i++) {
 
                         // The comment's creation date
                         var commentCreation = document.createElement("p");
-                        commentCreation.textContent = localTime
+                        commentCreation.textContent = blogDate
 
                         // Attach elements to div, then attach div to comment's section
                         comment.appendChild(username)
@@ -146,7 +154,6 @@ for (i=0; i < viewCommButton.length; i++) {
 }
 
 // Hide Comments (Dashboard)
-
 for (i=0; i < viewCommButton.length; i++) {
     hideCommButton[i].addEventListener("click", function(event) {
         const wholeDiv = event.target.parentElement.parentElement
@@ -165,7 +172,6 @@ for (i=0; i < viewCommButton.length; i++) {
         thisHideButt.style.display = "none"
     })
 };
-
 
 // Add New Blog (Dashboard)
 addNewBlog.addEventListener("click", function() {
