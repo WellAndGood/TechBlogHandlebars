@@ -8,16 +8,22 @@ router.get("/", async (req, res) => {
     });
     const PostPlain = blogs.map((post) => post.get({ plain: true }))
     PostPlain.reverse()
-
+    if (req.session.user_id) {
     res.render("blogposts", {
-      blogArr: PostPlain     
+      blogArr: PostPlain,  
+      logged_in: req.session.user_id 
     })
+    } else {
+      res.render("blogposts", {
+        blogArr: PostPlain,   
+      })
+    }
   });
 
 router.get("/dashboard", async (req, res) => {
   if (!req.session.user_id) {
     res.redirect("/login")
-  }
+  } 
   const blogs = dbPostData = await Post.findAll({
     where: {
       user_id: req.session.user_id // || 1
@@ -30,7 +36,8 @@ router.get("/dashboard", async (req, res) => {
   console.log(PostPlain)
 
   res.render("dashboard", {
-    blogArr: PostPlain      
+    blogArr: PostPlain,
+    logged_in: req.session.user_id        
   })
 })
 
@@ -43,6 +50,7 @@ router.get("/login", async (req, res) => {
 
 router.get("/newblog", async (req, res) => {
   res.render("newblog", {
+    logged_in: req.session.user_id
   })
 });
 
@@ -56,6 +64,7 @@ router.get("/singleblog/:id", async (req, res) => {
     res.render('singleblog', {
       layout: 'main',
       ...singleBlogData,
+      logged_in: req.session.user_id
     });
   } catch (err) {
     console.log(err)
@@ -63,6 +72,11 @@ router.get("/singleblog/:id", async (req, res) => {
 });
 
 router.get("/logout", async (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
   res.render("login", {
   })
 });
