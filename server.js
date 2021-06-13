@@ -13,12 +13,12 @@ const helpers = require('./utils/helpers');
 
 const app = express();
 const PORT = process.env.PORT || 3003;
-const hour = 300000
+const hour = 600000
 
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
+    maxAge: 600000,
     expires: new Date(Date.now() + hour),
   },
   resave: false,
