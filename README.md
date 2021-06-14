@@ -14,13 +14,19 @@ This document describes the components of a tech blog using Javascript, Node, Ex
 
 # Appearance 
 Once loaded, the generated HTML page should look like this:  
-![Appearance Upon Deployment](Screenshot1.png)
+<img src="Screenshot1.png" alt="Appearance Upon Deployment" width = "800"/>
 
-Clicking on the 'Login' button on the nav bar brings you to the registration, which allows you to create a new account or log in using existing credentials:   
-![Appearance of Login Page](Screenshot2.png)
+Clicking on the 'Login' button on the nav bar brings you to the registration, which allows you to create a new account or log in using existing credentials: 
+<img src="Screenshot2.png" alt="Appearance of Login Page" width = "800"/>  
 
 Once you've logged in, you are taken to your dashboard; it will be empty if you have a new account. Otherwise, it will have your already-posted blogs, as shown here:
+<img src="Screenshot3.png" alt="Appearance of Dashboard" width = "800"/> 
 
+Clicking on any individual blog's title provides a unique URL with a dedicated web-page for that blog.
+
+Each blog has a working 'View All Comments' and 'Add Comment' button. The former, when clicks, pops in all comments associated to that blog and toggles with a 'Hide All Comments' button. The later generates a textarea and 'Submit Comment' button. You can not submit a comment if you are not a registered user.
+
+<img src="Screenshot4.png" alt="Appearance of Comment Interface" width = "800"/>
 
 You can access the `.git` files at:
 https://github.com/WellAndGood/TechBlogHandlebars.git
@@ -30,21 +36,15 @@ https://techs-mechs-blog.herokuapp.com/
 
 # Features
 
-Hit the 'Get Started' button to be brought to the main feature of the application.
-On the left side of the screen, you are given a list of previously-entered notes. These are obtained using the GET method against the app's API endpoint.
-
-The right side of the screen is an input for a note title and note body. As you type into these fields, a save icon appears on the top right; clicking it allows you to save your note and commit it to the API using the POST method.
-
-Every saved note has a trash icon; clicking its respective icon eliminates the icon from the API using the DELETE method.
+- A logged-in user has access to more functions; they have a dashboard, where they can:
+    - Create a new blog
+    - Delete an existing blog
+    - Comment on their own blog and other people's blogs, and have them visible to all
 
 ## Bugs
 
-Though it might not appear evident, the GET, POST, and DELETE methods work; through the localhost, one must reboot the server to allow the new information to refresh. Clicking the save or delete buttons *do* update the JSON data inside the `db` folder.
-
-The instructors have stated that this is a bug related to the construction of the in-built Javascript files, and are not in the pervue of this homework.
-
-
-**How to contribute to the application**: Given that this application acts as homework, please do not contribute to this repository.
+- It is not obvious to the user whether their comment has been processed; it only works for logged in users.
+- It is not always obvious, after commenting or adding a new blog, that it was processed. It usually does process, and is visible, when does through Heroku.
 
 ## Contributors
 Daniel Pisani (WellAndGood)
