@@ -20,9 +20,9 @@ router.get('/', async (req, res) => {
 
 // Gets the comments of a specific blog's id ✔️
 router.get('/blog/:id', async (req, res) => {
-    // if (!req.session.user_id) {
-    //     res.redirect("/")
-    // }
+    if (!req.session.user_id) {
+        res.redirect("/")
+    }
     try {
         const dbCommentData = await Comment.findAll({
             where: {
@@ -49,9 +49,10 @@ router.get('/blog/:id', async (req, res) => {
 
 // POST method ✔️
 router.post('/', async (req, res) => { 
-    // if (!req.session.user_id) {
-    //     res.redirect("/")
-    // }
+    if (!req.session.user_id) {
+        alert("Only registered users can comment on blogs. Redirecting to signup page")
+        res.redirect("/login")
+    }
     try { 
 
     // A POST-compatible comment data structure 

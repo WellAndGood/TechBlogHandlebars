@@ -21,7 +21,10 @@
 
         <button class="viewComments" id="viewComments{{blog.id}}">View Comments</button>
         <button class="hideComments" id="hideComments{{blog.id}}">Hide Comments</button>
-        <button class="addComment" id="addComment{{blog.id}}">Add a Comment</button>        
+        {{#if logged_in}}
+        <button class="addComment" id="addComment{{blog.id}}">Add a Comment</button>
+        {{else}}
+        {{/if}}        
     </div>
 </div>
 {{/each}}

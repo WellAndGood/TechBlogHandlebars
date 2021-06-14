@@ -21,9 +21,9 @@ router.get("/", async (req, res) => {
   });
 
 router.get("/dashboard", async (req, res) => {
-  if (!req.session.user_id) {
-    res.redirect("/login")
-  } 
+  // if (req.session.logged_in) {
+  //   res.redirect("/login")
+  // } 
   const blogs = dbPostData = await Post.findAll({
     where: {
       user_id: req.session.user_id // || 1
@@ -76,8 +76,9 @@ router.get("/logout", async (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
-    });
+    })
   }
+  res.redirect("/login")
   res.render("login", {
   })
 });
