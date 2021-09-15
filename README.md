@@ -14,6 +14,8 @@ This document describes the components of a tech blog using Javascript, Node, Ex
 Why did we create a tech blog? Because we know for a fact that the world needs another one!
 
 # Appearance 
+You can access the web application directly with the following link: https://techs-mechs-blog.herokuapp.com/
+
 Once loaded, the generated HTML page should look like this:  
 <img src="Screenshot1.png" alt="Appearance Upon Deployment" width = "800"/>
 
