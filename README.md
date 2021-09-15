@@ -11,6 +11,7 @@
 # Overview
 
 This document describes the components of a tech blog using Javascript, Node, Express, sessions, and is deployed on Heroku. 
+Why did we create a tech blog? Because we know for a fact that the world needs another one!
 
 # Appearance 
 Once loaded, the generated HTML page should look like this:  
